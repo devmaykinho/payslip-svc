@@ -24,50 +24,26 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+APIs para gestão de funcionário
 
-## Installation
+## Funcionalidades
 
-```bash
-$ npm install
-```
+- Controle de funcionários
+- Controle de exames médicos e documentos
+- Download de holerites
 
-## Running the app
+## Tecnologias utilizadas
 
-```bash
-# development
-$ npm run start
+- Javascript
+- Typescript
+- Nodejs
+- TypeOrm
+- AWS
+- Postgres
 
-# watch mode
-$ npm run start:dev
+## Padrões e praticas de desenvolvimento
 
-# production mode
-$ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+- SOLID
+- Clean Architecture
+- DDD
+- TDD
