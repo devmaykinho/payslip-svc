@@ -70,14 +70,13 @@ describe('Employee Entity - Unite test', () => {
     );
   });
 
-  it('Should create an employee instance', () => {
-    expect(
-      new EmployeeEntity(
-        employeeEntityFixture(),
-        validateEmail,
-        validateCpf,
-        validateRg,
-      ),
-    ).toBeTruthy();
+  it('Should create an employee instance and return an employee', () => {
+    const employee = new EmployeeEntity(
+      employeeEntityFixture(),
+      validateEmail,
+      validateCpf,
+      validateRg,
+    );
+    expect(employee.get()).toEqual(employeeEntityFixture());
   });
 });
