@@ -1,13 +1,15 @@
-import { ValidateCpfPort } from 'src/domain/ports/validate-cpf.port';
-import { ValidateEmailPort } from 'src/domain/ports/validate-email.port';
-import { ValidateRgPort } from 'src/domain/ports/validate-rg.port';
+import { ValidateCpfPort } from 'src/domain/ports/validations/validate-cpf.port';
+import { ValidateEmailPort } from 'src/domain/ports/validations/validate-email.port';
+import { ValidateRgPort } from 'src/domain/ports/validations/validate-rg.port';
 
 export interface EmployeeInput {
+  name: string;
   cpf: string;
   rg: string;
   email: string;
   admissionDate: Date;
   dismissalDate: Date;
+  isActive: boolean;
 }
 
 export class EmployeeEntity {

@@ -24,7 +24,7 @@
 
 ## Description
 
-APIs para gestão de funcionário
+APIs para gestão de funcionários
 
 ## Funcionalidades
 

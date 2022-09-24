@@ -1,8 +1,8 @@
 import { mock } from 'jest-mock-extended';
-import { ValidateCpfPort } from 'src/domain/ports/validate-cpf.port';
-import { ValidateRgPort } from 'src/domain/ports/validate-rg.port';
+import { ValidateCpfPort } from 'src/domain/ports/validations/validate-cpf.port';
+import { ValidateRgPort } from 'src/domain/ports/validations/validate-rg.port';
 import { employeeEntityFixture } from '../../../utils/fixture/employee.entity.fixture';
-import { ValidateEmailPort } from '../../ports/validate-email.port';
+import { ValidateEmailPort } from '../../ports/validations/validate-email.port';
 import { EmployeeEntity } from './employee.entity';
 
 describe('Employee Entity - Unite test', () => {

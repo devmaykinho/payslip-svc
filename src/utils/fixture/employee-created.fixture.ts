@@ -1,9 +1,10 @@
-import { EmployeeInput } from 'src/domain/entities/employee/employee.entity';
+import { EmployeeCreated } from 'src/domain/ports/repositories/get-employee-by-unique-key.port';
 
-export const employeeEntityFixture = (
-  props?: Partial<EmployeeInput>,
-): EmployeeInput => {
-  const employeInput: EmployeeInput = {
+export const employeeCreatedFixture = (
+  props?: Partial<EmployeeCreated>,
+): EmployeeCreated => {
+  const employeInput: EmployeeCreated = {
+    id: 1,
     name: 'Nome',
     cpf: '111.111.111-11',
     email: 'email@email.com',
