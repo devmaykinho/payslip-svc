@@ -51,5 +51,5 @@ APIs para gestão de funcionários
 ## Desenho de arquitetura
 
 <p align="center">
-  <img src="./design-architecture.png" width="200" alt="Desenho de Arquitetura" />
+  <img src="./design-architecture.png" width="100%" alt="Desenho de Arquitetura" />
 </p>
