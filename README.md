@@ -50,4 +50,6 @@ APIs para gestão de funcionários
 
 ## Desenho de arquitetura
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
+<p align="center">
+  <img src="./design-architecture.png" width="200" alt="Desenho de Arquitetura" />
+</p>
