@@ -32,8 +32,8 @@ describe('CPF Entity - Unit test', () => {
   });
 
   it('Should return a cpf formated', () => {
-    const cpfWithoutFormat = '36611535870';
-    const cpfFormated = '366.115.358-70';
+    const cpfWithoutFormat = '85417926094';
+    const cpfFormated = '854.179.260-94';
     const cpf = new CpfEntity(cpfWithoutFormat);
     expect(cpf.format()).toBe(cpfFormated);
   });
