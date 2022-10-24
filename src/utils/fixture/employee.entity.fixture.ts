@@ -1,9 +1,9 @@
-import { EmployeeInput } from 'src/domain/entities/employee/employee.entity';
+import { EmployeeEntityInput } from 'src/domain/entities/employee/employee.entity';
 
 export const employeeEntityFixture = (
-  props?: Partial<EmployeeInput>,
-): EmployeeInput => {
-  const employeInput: EmployeeInput = {
+  props?: Partial<EmployeeEntityInput>,
+): EmployeeEntityInput => {
+  const employeInput: EmployeeEntityInput = {
     name: 'Nome',
     cpf: '111.111.111-11',
     email: 'email@email.com',

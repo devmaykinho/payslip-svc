@@ -1,8 +1,8 @@
 import {
   EmployeeEntity,
-  EmployeeInput,
+  EmployeeEntityInput,
 } from 'src/domain/entities/employee/employee.entity';
 
 export interface EmployeeFactory {
-  getInstance: (input: EmployeeInput) => EmployeeEntity;
+  getInstance: (input: EmployeeEntityInput) => EmployeeEntity;
 }

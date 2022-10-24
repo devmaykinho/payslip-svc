@@ -5,7 +5,7 @@ import { employeeEntityFixture } from '../../../utils/fixture/employee.entity.fi
 import { ValidateEmailPort } from '../../ports/validations/validate-email.port';
 import { EmployeeEntity } from './employee.entity';
 
-describe('Employee Entity - Unite test', () => {
+describe('Employee Entity - Unit test', () => {
   const validateEmail = mock<ValidateEmailPort>();
   const validateCpf = mock<ValidateCpfPort>();
   const validateRg = mock<ValidateRgPort>();

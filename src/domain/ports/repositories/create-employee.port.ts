@@ -1,4 +1,4 @@
-export interface CreateEmployeeInput {
+export interface EmployeeRepositoryInput {
   name: string;
   cpf: string;
   rg: string;
@@ -9,5 +9,5 @@ export interface CreateEmployeeInput {
 }
 
 export interface CreateEmployeePort {
-  execute: (input: CreateEmployeeInput) => Promise<void>;
+  execute: (input: EmployeeRepositoryInput) => Promise<void>;
 }

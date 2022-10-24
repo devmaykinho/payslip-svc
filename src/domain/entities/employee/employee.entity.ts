@@ -2,7 +2,7 @@ import { ValidateCpfPort } from 'src/domain/ports/validations/validate-cpf.port'
 import { ValidateEmailPort } from 'src/domain/ports/validations/validate-email.port';
 import { ValidateRgPort } from 'src/domain/ports/validations/validate-rg.port';
 
-export interface EmployeeInput {
+export interface EmployeeEntityInput {
   name: string;
   cpf: string;
   rg: string;
@@ -14,15 +14,15 @@ export interface EmployeeInput {
 
 export class EmployeeEntity {
   constructor(
-    private readonly employee: EmployeeInput,
+    private readonly employee: EmployeeEntityInput,
     private readonly validateEmail: ValidateEmailPort,
     private readonly validateCpf: ValidateCpfPort,
     private readonly validateRg: ValidateRgPort,
   ) {
-    this.validateEmployee();
+    this.validate();
   }
 
-  private validateEmployee() {
+  private validate() {
     if (!this.dismissalIsValid()) {
       throw new Error('Dismissal date cannot be less than the admission date');
     }
