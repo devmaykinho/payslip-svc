@@ -12,7 +12,7 @@ export interface EmployeeEntityInput {
   isActive: boolean;
 }
 
-export class EmployeeEntity {
+export class Employee {
   constructor(
     private readonly employee: EmployeeEntityInput,
     private readonly validateEmail: ValidateEmailPort,

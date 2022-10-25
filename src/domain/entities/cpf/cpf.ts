@@ -1,4 +1,4 @@
-export class CpfEntity {
+export class Cpf {
   constructor(private cpf: string) {
     this.setOnlyNumericDigit();
     this.validate();

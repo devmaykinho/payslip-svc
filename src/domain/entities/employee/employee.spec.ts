@@ -3,7 +3,7 @@ import { ValidateCpfPort } from 'src/domain/ports/validations/validate-cpf.port'
 import { ValidateRgPort } from 'src/domain/ports/validations/validate-rg.port';
 import { employeeEntityFixture } from '../../../utils/fixture/employee.entity.fixture';
 import { ValidateEmailPort } from '../../ports/validations/validate-email.port';
-import { EmployeeEntity } from './employee.entity';
+import { Employee } from './employee';
 
 describe('Employee Entity - Unit test', () => {
   const validateEmail = mock<ValidateEmailPort>();
@@ -18,7 +18,7 @@ describe('Employee Entity - Unit test', () => {
     validateEmail.isValid.mockReturnValue(false);
     expect(
       () =>
-        new EmployeeEntity(
+        new Employee(
           employeeEntityFixture(),
           validateEmail,
           validateCpf,
@@ -31,7 +31,7 @@ describe('Employee Entity - Unit test', () => {
     validateCpf.isValid.mockReturnValue(false);
     expect(
       () =>
-        new EmployeeEntity(
+        new Employee(
           employeeEntityFixture(),
           validateEmail,
           validateCpf,
@@ -44,7 +44,7 @@ describe('Employee Entity - Unit test', () => {
     validateRg.isValid.mockReturnValue(false);
     expect(
       () =>
-        new EmployeeEntity(
+        new Employee(
           employeeEntityFixture(),
           validateEmail,
           validateCpf,
@@ -56,7 +56,7 @@ describe('Employee Entity - Unit test', () => {
   it('Should return an exception if dismissal date less than admission date ', () => {
     expect(
       () =>
-        new EmployeeEntity(
+        new Employee(
           employeeEntityFixture({
             admissionDate: new Date('01/05/2022'),
             dismissalDate: new Date('01/02/2022'),
@@ -71,7 +71,7 @@ describe('Employee Entity - Unit test', () => {
   });
 
   it('Should create an employee instance and return an employee', () => {
-    const employee = new EmployeeEntity(
+    const employee = new Employee(
       employeeEntityFixture(),
       validateEmail,
       validateCpf,
