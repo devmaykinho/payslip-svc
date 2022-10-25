@@ -8,7 +8,6 @@ export class Cpf {
     this.checkSameDigits();
 
     const cpfValidated = this.getValidatedCpf();
-    console.log(this.cpf, cpfValidated);
     if (this.cpf !== cpfValidated) {
       throw new Error('Cpf is invalid');
     }
@@ -52,7 +51,7 @@ export class Cpf {
     return 0;
   }
 
-  public format() {
+  public toString() {
     return (
       this.cpf.slice(0, 3) +
       '.' +
@@ -62,5 +61,9 @@ export class Cpf {
       '-' +
       this.cpf.slice(9, 11)
     );
+  }
+
+  public toNumber() {
+    return Number(this.cpf);
   }
 }

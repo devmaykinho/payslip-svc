@@ -1,11 +1,12 @@
-import { EmployeeEntityInput } from 'src/domain/entities/employee/employee.entity';
+import { Cpf } from '../../domain/entities/cpf/cpf';
+import { EmployeeEntityInput } from '../../domain/entities/employee/employee';
 
 export const employeeEntityFixture = (
   props?: Partial<EmployeeEntityInput>,
 ): EmployeeEntityInput => {
   const employeInput: EmployeeEntityInput = {
     name: 'Nome',
-    cpf: '111.111.111-11',
+    cpf: new Cpf('854.179.260-94'),
     email: 'email@email.com',
     rg: '22222222X',
     admissionDate: new Date('01/01/2022'),
