@@ -1,21 +1,21 @@
 import { mock } from 'jest-mock-extended';
-import { EmployeeEntity } from 'src/domain/entities/employee/employee.entity';
+import { Employee } from 'src/domain/entities/employee/employee.entity';
 import { EmployeeFactory } from 'src/domain/ports/factories/employee.factory';
 import { CreateEmployeePort } from 'src/domain/ports/repositories/create-employee.port';
 import { GetEmployeeByUniqueKeyPort } from 'src/domain/ports/repositories/get-employee-by-unique-key.port';
-import { employeeCreatedFixture } from '../../../utils/fixture/employee-created.fixture';
-import { employeeEntityFixture } from '../../../utils/fixture/employee.entity.fixture';
+import { createEmployeeFixture } from '../../../utils/fixture/create-employee.fixture';
+import { employeeFixture } from '../../../utils/fixture/employee.fixture';
 import { CreateEmployeeUseCase } from './create-employee.usecase';
 
 describe('CreateEmployeeUseCase - Unit test', () => {
   const getEmployeeByKeys = mock<GetEmployeeByUniqueKeyPort>();
   const createEmployeePort = mock<CreateEmployeePort>();
   const employeeFactory = mock<EmployeeFactory>();
-  const employeeEntity = mock<EmployeeEntity>();
+  const employeeEntity = mock<Employee>();
   beforeEach(() => {
-    getEmployeeByKeys.execute.mockResolvedValue(employeeCreatedFixture());
+    getEmployeeByKeys.execute.mockResolvedValue(createEmployeeFixture());
     createEmployeePort.execute.mockResolvedValue();
-    employeeEntity.get.mockReturnValue(employeeEntityFixture());
+    employeeEntity.get.mockReturnValue(employeeFixture());
     employeeFactory.getInstance.mockReturnValue(employeeEntity);
   });
   it('Should return an exception if there is already an employee for the given cpf ', async () => {
@@ -25,7 +25,7 @@ describe('CreateEmployeeUseCase - Unit test', () => {
       employeeFactory,
     );
     await expect(
-      createEmployeeUseCase.execute(employeeEntityFixture()),
+      createEmployeeUseCase.execute(createEmployeeFixture()),
     ).rejects.toThrowError(
       new Error('There is already an employee registered with this cpf'),
     );
@@ -42,7 +42,7 @@ describe('CreateEmployeeUseCase - Unit test', () => {
     );
 
     await expect(
-      createEmployeeUseCase.execute(employeeEntityFixture()),
+      createEmployeeUseCase.execute(createEmployeeFixture()),
     ).rejects.toThrow(new Error('Error'));
   });
 
@@ -53,9 +53,7 @@ describe('CreateEmployeeUseCase - Unit test', () => {
       createEmployeePort,
       employeeFactory,
     );
-    await createEmployeeUseCase.execute(employeeEntityFixture());
-    expect(createEmployeePort.execute).toHaveBeenCalledWith(
-      employeeEntityFixture(),
-    );
+    await createEmployeeUseCase.execute(createEmployeeFixture());
+    expect(createEmployeePort.execute).toHaveBeenCalledWith(employeeFixture());
   });
 });

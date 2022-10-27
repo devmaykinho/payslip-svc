@@ -1,6 +1,6 @@
 import { EmployeeCreated } from 'src/domain/ports/repositories/get-employee-by-unique-key.port';
 
-export const employeeCreatedFixture = (
+export const createEmployeeFixture = (
   props?: Partial<EmployeeCreated>,
 ): EmployeeCreated => {
   const employeInput: EmployeeCreated = {

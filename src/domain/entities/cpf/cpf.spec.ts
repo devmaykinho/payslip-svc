@@ -1,4 +1,4 @@
-import { Cpf } from './cpf';
+import { Cpf } from './cpf.entity';
 
 describe('CPF Entity - Unit test', () => {
   it('Should return an exception if cpf lenth is less then 11', () => {
@@ -31,6 +31,6 @@ describe('CPF Entity - Unit test', () => {
     const cpfWithoutFormat = '85417926094';
     const cpfFormated = '854.179.260-94';
     const cpf = new Cpf(cpfWithoutFormat);
-    expect(cpf.toString()).toBe(cpfFormated);
+    expect(cpf.format()).toBe(cpfFormated);
   });
 });

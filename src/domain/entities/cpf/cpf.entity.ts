@@ -51,7 +51,7 @@ export class Cpf {
     return 0;
   }
 
-  public toString() {
+  public format() {
     return (
       this.cpf.slice(0, 3) +
       '.' +
@@ -63,7 +63,7 @@ export class Cpf {
     );
   }
 
-  public toNumber() {
-    return Number(this.cpf);
+  public get() {
+    return this.cpf;
   }
 }

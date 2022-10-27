@@ -1,12 +1,12 @@
-import { employeeEntityFixture } from '../../../utils/fixture/employee.entity.fixture';
-import { Employee } from './employee';
+import { employeeFixture } from '../../../utils/fixture/employee.fixture';
+import { Employee } from './employee.entity';
 
 describe('Employee Entity - Unit test', () => {
   it('Should return an exception if dismissal date less than admission date ', () => {
     expect(
       () =>
         new Employee(
-          employeeEntityFixture({
+          employeeFixture({
             admissionDate: new Date('01/05/2022'),
             dismissalDate: new Date('01/02/2022'),
           }),
@@ -17,7 +17,7 @@ describe('Employee Entity - Unit test', () => {
   });
 
   it('Should create an employee instance and return an employee', () => {
-    const employee = new Employee(employeeEntityFixture());
-    expect(employee.get()).toEqual(employeeEntityFixture());
+    const employee = new Employee(employeeFixture());
+    expect(employee.get()).toEqual(employeeFixture());
   });
 });
