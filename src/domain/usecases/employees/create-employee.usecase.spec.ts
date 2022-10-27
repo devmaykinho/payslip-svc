@@ -43,7 +43,7 @@ describe('CreateEmployeeUseCase - Unit test', () => {
 
     await expect(
       createEmployeeUseCase.execute(createEmployeeFixture()),
-    ).rejects.toThrow(new Error('Errors'));
+    ).rejects.toThrow(new Error('Error'));
   });
 
   it('Should create employee with success', async () => {
