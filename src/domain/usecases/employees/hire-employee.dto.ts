@@ -1,4 +1,4 @@
-export interface CreateEmployeeDto {
+export interface HireEmployeeDto {
   name: string;
   cpf: string;
   rg: string;

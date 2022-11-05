@@ -1,5 +1,5 @@
 import { EmployeeDto } from 'src/domain/entities/employee/employee.dto';
 
-export interface CreateEmployeePort {
+export interface HireEmployeePort {
   execute: (input: EmployeeDto) => Promise<void>;
 }
