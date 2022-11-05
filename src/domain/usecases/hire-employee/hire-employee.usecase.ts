@@ -1,17 +1,15 @@
-import { EmployeeFactory } from 'src/domain/ports/factories/employee.factory';
 import { GetEmployeeByUniqueKeyPort } from 'src/domain/ports/repositories/get-employee-by-unique-key.port';
 import { HireEmployeePort } from 'src/domain/ports/repositories/hire-employee.port';
-import { HireEmployeeDto } from './hire-employee.dto';
+import { Employee } from '../../entities/employee/employee.entity';
 
 export class HireEmployeeUseCase {
   constructor(
+    private readonly employee: Employee,
     private readonly getEmployeeByKeys: GetEmployeeByUniqueKeyPort,
     private readonly createEmployee: HireEmployeePort,
-    private readonly employeeFactory: EmployeeFactory,
   ) {}
-  async execute(input: HireEmployeeDto): Promise<void> {
-    const employee = this.employeeFactory.getInstance(input);
-    const employeeData = employee.get();
+  async execute(): Promise<void> {
+    const employeeData = this.employee.get();
 
     const employeCreated = await this.getEmployeeByKeys.execute({
       cpf: employeeData.cpf.get(),
