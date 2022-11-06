@@ -1,43 +1,48 @@
 import { mock } from 'jest-mock-extended';
-import { EmployeeFactory } from 'src/domain/ports/factories/employee.factory';
-import { GetEmployeeByUniqueKeyPort } from 'src/domain/ports/repositories/get-employee-by-unique-key.port';
-import { HireEmployeePort } from 'src/domain/ports/repositories/hire-employee.port';
+import { EmployeeFactory } from 'src/domain/interfaces/factories/employee.factory';
 import { employeeFixture } from '../../../utils/fixture/employee.fixture';
 import { hireEmployeeFixture } from '../../../utils/fixture/hire-employee.fixture';
 import { Employee } from '../../entities/employee/employee.entity';
+import { EmployeeRepository } from '../../interfaces/repositories/employee.repository';
 import { HireEmployeeUseCase } from './hire-employee.usecase';
 
 describe('HireEmployeeUseCase - Unit test', () => {
-  const employee = new Employee(employeeFixture());
-  const getEmployeeByKeys = mock<GetEmployeeByUniqueKeyPort>();
-  const hireEmployeePort = mock<HireEmployeePort>();
+  const admissionDate = new Date('2022-01-01T00:00:00.000Z');
+  const dismissalDate = null;
+  const employeeRepository = mock<EmployeeRepository>();
   const employeeFactory = mock<EmployeeFactory>();
-  const employeeEntity = mock<Employee>();
+  let hireEmployeeUseCase: HireEmployeeUseCase;
+
   beforeEach(() => {
-    getEmployeeByKeys.execute.mockResolvedValue(hireEmployeeFixture());
-    hireEmployeePort.execute.mockResolvedValue();
-    employeeEntity.get.mockReturnValue(employeeFixture());
-    employeeFactory.getInstance.mockReturnValue(employeeEntity);
-  });
-  it('Should return an exception if there is already an employee for the given cpf ', async () => {
-    const hireEmployeeUseCase = new HireEmployeeUseCase(
-      employee,
-      getEmployeeByKeys,
-      hireEmployeePort,
+    const employee = new Employee(
+      employeeFixture({ admissionDate, dismissalDate }),
     );
-    await expect(hireEmployeeUseCase.execute()).rejects.toThrowError(
-      new Error('There is already an employee registered with this cpf'),
+    employeeRepository.save.mockResolvedValue();
+    employeeFactory.getInstance.mockReturnValue(employee);
+    hireEmployeeUseCase = new HireEmployeeUseCase(
+      employeeRepository,
+      employeeFactory,
     );
   });
 
   it('Should hire employee with success', async () => {
-    getEmployeeByKeys.execute.mockResolvedValue(undefined);
-    const hireEmployeeUseCase = new HireEmployeeUseCase(
-      employee,
-      getEmployeeByKeys,
-      hireEmployeePort,
+    await hireEmployeeUseCase.execute(
+      hireEmployeeFixture({ admissionDate, dismissalDate }),
     );
-    await hireEmployeeUseCase.execute();
-    expect(hireEmployeePort.execute).toHaveBeenCalledWith(employeeFixture());
+    expect(employeeRepository.save).toHaveBeenCalledWith(
+      new Employee(employeeFixture({ admissionDate, dismissalDate })),
+    );
+  });
+
+  it('Should return an exception if employee factory fail', async () => {
+    employeeFactory.getInstance.mockImplementation(() => {
+      throw new Error('Invalid employee');
+    });
+
+    await expect(() =>
+      hireEmployeeUseCase.execute(
+        hireEmployeeFixture({ admissionDate, dismissalDate }),
+      ),
+    ).rejects.toThrow(new Error('Invalid employee'));
   });
 });

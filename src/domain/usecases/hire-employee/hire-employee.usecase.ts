@@ -1,24 +1,14 @@
-import { GetEmployeeByUniqueKeyPort } from 'src/domain/ports/repositories/get-employee-by-unique-key.port';
-import { HireEmployeePort } from 'src/domain/ports/repositories/hire-employee.port';
-import { Employee } from '../../entities/employee/employee.entity';
+import { EmployeeFactory } from 'src/domain/interfaces/factories/employee.factory';
+import { HireEmployeeDto } from '../../interfaces/dtos/hire-employee.dto';
+import { EmployeeRepository } from '../../interfaces/repositories/employee.repository';
 
 export class HireEmployeeUseCase {
   constructor(
-    private readonly employee: Employee,
-    private readonly getEmployeeByKeys: GetEmployeeByUniqueKeyPort,
-    private readonly createEmployee: HireEmployeePort,
+    private readonly employeeRepository: EmployeeRepository,
+    private readonly employeeFactory: EmployeeFactory,
   ) {}
-  async execute(): Promise<void> {
-    const employeeData = this.employee.get();
-
-    const employeCreated = await this.getEmployeeByKeys.execute({
-      cpf: employeeData.cpf.get(),
-      rg: employeeData.rg,
-      email: employeeData.email,
-    });
-    if (employeCreated) {
-      throw new Error('There is already an employee registered with this cpf');
-    }
-    await this.createEmployee.execute(employeeData);
+  async execute(input: HireEmployeeDto): Promise<void> {
+    const employee = this.employeeFactory.getInstance(input);
+    this.employeeRepository.save(employee);
   }
 }

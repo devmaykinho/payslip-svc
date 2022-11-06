@@ -1,16 +1,15 @@
-import { EmployeeCreated } from 'src/domain/ports/repositories/get-employee-by-unique-key.port';
+import { HireEmployeeDto } from 'src/domain/interfaces/dtos/hire-employee.dto';
 
 export const hireEmployeeFixture = (
-  props?: Partial<EmployeeCreated>,
-): EmployeeCreated => {
-  const employeInput: EmployeeCreated = {
-    id: 1,
+  props?: Partial<HireEmployeeDto>,
+): HireEmployeeDto => {
+  const employeInput: HireEmployeeDto = {
     name: 'Nome',
-    cpf: '111.111.111-11',
+    cpf: '854.179.260-94',
     email: 'email@email.com',
     rg: '22222222X',
-    admissionDate: new Date('01/01/2022'),
-    dismissalDate: new Date('02/02/2022'),
+    admissionDate: new Date('2022-01-01T00:00:00.000Z'),
+    dismissalDate: new Date('2022-01-02T00:00:00.000Z'),
     isActive: true,
   };
   return {

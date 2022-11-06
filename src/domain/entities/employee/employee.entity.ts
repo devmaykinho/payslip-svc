@@ -10,7 +10,10 @@ export class Employee {
   }
 
   private dismissalIsValid(): void {
-    if (this.employee.dismissalDate < this.employee.admissionDate) {
+    if (
+      this.employee.dismissalDate &&
+      this.employee.dismissalDate < this.employee.admissionDate
+    ) {
       throw new Error('Dismissal date cannot be less than the admission date');
     }
   }
