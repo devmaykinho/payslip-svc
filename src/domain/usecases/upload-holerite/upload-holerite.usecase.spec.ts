@@ -10,22 +10,58 @@ describe('UploadHoleriteUseCase - Unit test', () => {
   const fileStorage = mock<FileStoragePort>();
   const holeriteRepository = mock<HoleriteRepository>();
   const holeriteFactory = mock<HoleriteFactory>();
+  let uploadHoleriteUseCase: UploadHoleriteUseCase;
   beforeEach(() => {
+    jest.resetAllMocks();
+    jest.clearAllMocks();
     fileStorage.updload.mockResolvedValue();
     holeriteFactory.getInstance.mockReturnValue(holeriteFixture());
+    uploadHoleriteUseCase = new UploadHoleriteUseCase(
+      fileStorage,
+      holeriteRepository,
+      holeriteFactory,
+    );
   });
+
+  it('Should return an exception if holerite factory fail', async () => {
+    holeriteFactory.getInstance.mockImplementation(() => {
+      throw new Error('Error');
+    });
+
+    await expect(() =>
+      uploadHoleriteUseCase.execute(uploadHoleriteFixture()),
+    ).rejects.toThrow(new Error('Error'));
+  });
+
   it('Should return an exception if upload on storage fail', async () => {
     fileStorage.updload.mockImplementation(() => {
       throw new Error('Upload fail');
     });
 
-    const uploadHoleriteUseCase = new UploadHoleriteUseCase(
-      fileStorage,
-      holeriteRepository,
-      holeriteFactory,
-    );
     await expect(() =>
       uploadHoleriteUseCase.execute(uploadHoleriteFixture()),
     ).rejects.toThrow(new Error('Upload fail'));
+  });
+
+  it('Should remove file if save holerite repository fail', async () => {
+    const holerite = holeriteFixture().get();
+    const fileKey = `${holerite.paymentDate.getMonth()}/${holerite.employee
+      .get()
+      .cpf.get()}/${holerite.paymentType}`;
+    holeriteRepository.save.mockImplementation(() => {
+      throw new Error('Error');
+    });
+
+    await expect(() =>
+      uploadHoleriteUseCase.execute(uploadHoleriteFixture()),
+    ).rejects.toThrow(new Error('Upload holerite error'));
+
+    expect(fileStorage.remove).toBeCalledTimes(1);
+    expect(fileStorage.remove).toHaveBeenCalledWith(fileKey);
+  });
+
+  it('Should return undefined if holerite is uploaded', async () => {
+    const result = await uploadHoleriteUseCase.execute(uploadHoleriteFixture());
+    expect(result).toBe(undefined);
   });
 });

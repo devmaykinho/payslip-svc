@@ -30,7 +30,6 @@ export class UploadHoleriteUseCase {
   ): string {
     const employeeCpf = employee.get().cpf.get();
     const paymentMonth = holeriteInput.paymentDate.getMonth();
-    const createdDate = new Date().getTime();
-    return `${paymentMonth}/${employeeCpf}/${holeriteInput.paymentType}-${createdDate}`;
+    return `${paymentMonth}/${employeeCpf}/${holeriteInput.paymentType}`;
   }
 }
