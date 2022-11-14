@@ -1,9 +1,9 @@
-import { HireEmployeeDto } from 'src/domain/interfaces/dtos/hire-employee.dto';
+import { HireEmployeeDto } from '../../domain/usecases/hire-employee/hire-employee.usecase.dto';
 
 export const hireEmployeeFixture = (
   props?: Partial<HireEmployeeDto>,
 ): HireEmployeeDto => {
-  const employeInput: HireEmployeeDto = {
+  const hireEmployeeInput: HireEmployeeDto = {
     name: 'Nome',
     cpf: '854.179.260-94',
     email: 'email@email.com',
@@ -13,7 +13,7 @@ export const hireEmployeeFixture = (
     isActive: true,
   };
   return {
-    ...employeInput,
+    ...hireEmployeeInput,
     ...props,
   };
 };

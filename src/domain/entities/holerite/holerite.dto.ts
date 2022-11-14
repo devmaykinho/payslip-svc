@@ -1,13 +1,21 @@
 import { Employee } from '../employee/employee.entity';
 
-interface Period {
+export interface Period {
   startDate: Date;
   endDate: Date;
 }
 
+export type PaymentType =
+  | 'SALARIO'
+  | 'ADIANTAMENTO'
+  | 'FERIAS'
+  | 'DECIMO_TERCEIRO'
+  | 'PLR';
+
 export interface HoleriteDto {
   paymentDate: Date;
   period: Period;
-  fileUrl: string;
+  paymentType: PaymentType;
+  fileKey: string;
   employee: Employee;
 }

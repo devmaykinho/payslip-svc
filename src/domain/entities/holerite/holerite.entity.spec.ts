@@ -1,4 +1,4 @@
-import { employeeFixture } from '../../../utils/fixture/employee.fixture';
+import { employeeFixture } from '../../../mocks/fixture/employee.fixture';
 import { Employee } from '../employee/employee.entity';
 import { HoleriteDto } from './holerite.dto';
 import { Holerite } from './holerite.entity';
@@ -12,7 +12,8 @@ describe('Holerite Entity - Unite test', () => {
         startDate: new Date('2022-01-31T00:00:00.000Z'),
         endDate: new Date('2022-01-01T00:00:00.000Z'),
       },
-      fileUrl: 'url',
+      fileKey: '/holerites/janeiro/teste.pdf',
+      paymentType: 'SALARIO',
       employee,
     };
     expect(() => new Holerite(holeriteInput)).toThrow(

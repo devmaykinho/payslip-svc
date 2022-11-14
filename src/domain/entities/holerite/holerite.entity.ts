@@ -10,4 +10,8 @@ export class Holerite {
       throw new Error('End period must be less than the end period');
     }
   }
+
+  get() {
+    return this.holerite;
+  }
 }

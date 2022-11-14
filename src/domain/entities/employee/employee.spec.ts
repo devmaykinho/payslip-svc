@@ -1,4 +1,4 @@
-import { employeeFixture } from '../../../utils/fixture/employee.fixture';
+import { employeeFixture } from '../../../mocks/fixture/employee.fixture';
 import { Employee } from './employee.entity';
 
 describe('Employee Entity - Unit test', () => {

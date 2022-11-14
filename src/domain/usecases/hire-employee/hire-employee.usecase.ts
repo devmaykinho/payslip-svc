@@ -1,6 +1,6 @@
-import { EmployeeFactory } from 'src/domain/interfaces/factories/employee.factory';
-import { HireEmployeeDto } from '../../interfaces/dtos/hire-employee.dto';
+import { EmployeeFactory } from '../../interfaces/factories/employee/employee.factory';
 import { EmployeeRepository } from '../../interfaces/repositories/employee.repository';
+import { HireEmployeeDto } from './hire-employee.usecase.dto';
 
 export class HireEmployeeUseCase {
   constructor(

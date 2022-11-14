@@ -1,8 +1,8 @@
 import { mock } from 'jest-mock-extended';
-import { EmployeeFactory } from 'src/domain/interfaces/factories/employee.factory';
-import { employeeFixture } from '../../../utils/fixture/employee.fixture';
-import { hireEmployeeFixture } from '../../../utils/fixture/hire-employee.fixture';
+import { employeeFixture } from '../../../mocks/fixture/employee.fixture';
+import { hireEmployeeFixture } from '../../../mocks/fixture/hire-employee.fixture';
 import { Employee } from '../../entities/employee/employee.entity';
+import { EmployeeFactory } from '../../interfaces/factories/employee/employee.factory';
 import { EmployeeRepository } from '../../interfaces/repositories/employee.repository';
 import { HireEmployeeUseCase } from './hire-employee.usecase';
 
