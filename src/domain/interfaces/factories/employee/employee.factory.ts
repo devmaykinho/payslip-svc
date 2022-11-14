@@ -1,4 +1,4 @@
-import { Employee } from 'src/domain/entities/employee/employee.entity';
+import { Employee } from '../../../entities/employee/employee.entity';
 import { EmployeeDto } from './employee.dto';
 
 export interface EmployeeFactory {

@@ -1,5 +1,5 @@
-import { Cpf } from '../../domain/entities/cpf/cpf.entity';
-import { EmployeeDto } from '../../domain/entities/employee/employee.dto';
+import { Cpf } from '../../../../src/domain/entities/cpf/cpf.entity';
+import { EmployeeDto } from '../../../../src/domain/entities/employee/employee.dto';
 
 export const employeeFixture = (props?: Partial<EmployeeDto>): EmployeeDto => {
   const employeInput: EmployeeDto = {

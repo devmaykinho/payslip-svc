@@ -1,5 +1,5 @@
 import { Blob } from 'buffer';
-import { UploadHoleriteDto } from 'src/domain/usecases/upload-holerite/upload-holerite.usecase.dto';
+import { UploadHoleriteDto } from '../../../../src/domain/usecases/upload-holerite/upload-holerite.usecase.dto';
 
 export const uploadHoleriteFixture = (
   props?: Partial<UploadHoleriteDto>,

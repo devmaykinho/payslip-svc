@@ -1,6 +1,6 @@
-import { Employee } from '../../domain/entities/employee/employee.entity';
-import { HoleriteDto } from '../../domain/entities/holerite/holerite.dto';
-import { Holerite } from '../../domain/entities/holerite/holerite.entity';
+import { Employee } from '../../../../src/domain/entities/employee/employee.entity';
+import { HoleriteDto } from '../../../../src/domain/entities/holerite/holerite.dto';
+import { Holerite } from '../../../../src/domain/entities/holerite/holerite.entity';
 import { employeeFixture } from './employee.fixture';
 
 export const holeriteFixture = (props?: Partial<HoleriteDto>): Holerite => {

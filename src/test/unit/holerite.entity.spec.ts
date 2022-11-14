@@ -1,7 +1,7 @@
-import { employeeFixture } from '../../../mocks/fixture/employee.fixture';
-import { Employee } from '../employee/employee.entity';
-import { HoleriteDto } from './holerite.dto';
-import { Holerite } from './holerite.entity';
+import { Employee } from '../../../src/domain/entities/employee/employee.entity';
+import { HoleriteDto } from '../../../src/domain/entities/holerite/holerite.dto';
+import { Holerite } from '../../../src/domain/entities/holerite/holerite.entity';
+import { employeeFixture } from '../mocks/fixture/employee.fixture';
 
 describe('Holerite Entity - Unite test', () => {
   const employee = new Employee(employeeFixture());

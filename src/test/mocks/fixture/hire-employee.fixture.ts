@@ -1,4 +1,4 @@
-import { HireEmployeeDto } from '../../domain/usecases/hire-employee/hire-employee.usecase.dto';
+import { HireEmployeeDto } from '../../../../src/domain/usecases/hire-employee/hire-employee.usecase.dto';
 
 export const hireEmployeeFixture = (
   props?: Partial<HireEmployeeDto>,

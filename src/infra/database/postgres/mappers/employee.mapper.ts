@@ -1,4 +1,4 @@
-import { Employee } from '../../../../domain/entities/employee/employee.entity';
+import { Employee } from 'src/domain/entities/employee/employee.entity';
 import { EmployeeFactory } from '../../../../domain/interfaces/factories/employee/employee.factory';
 import { EmployeeModel } from '../models/employee.model';
 

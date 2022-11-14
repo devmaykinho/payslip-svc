@@ -1,10 +1,10 @@
 import { mock } from 'jest-mock-extended';
-import { employeeFixture } from '../../../mocks/fixture/employee.fixture';
-import { hireEmployeeFixture } from '../../../mocks/fixture/hire-employee.fixture';
-import { Employee } from '../../entities/employee/employee.entity';
-import { EmployeeFactory } from '../../interfaces/factories/employee/employee.factory';
-import { EmployeeRepository } from '../../interfaces/repositories/employee.repository';
-import { HireEmployeeUseCase } from './hire-employee.usecase';
+import { Employee } from '../../../src/domain/entities/employee/employee.entity';
+import { EmployeeFactory } from '../../../src/domain/interfaces/factories/employee/employee.factory';
+import { EmployeeRepository } from '../../../src/domain/interfaces/repositories/employee.repository';
+import { HireEmployeeUseCase } from '../../../src/domain/usecases/hire-employee/hire-employee.usecase';
+import { employeeFixture } from '../mocks/fixture/employee.fixture';
+import { hireEmployeeFixture } from '../mocks/fixture/hire-employee.fixture';
 
 describe('HireEmployeeUseCase - Unit test', () => {
   const admissionDate = new Date('2022-01-01T00:00:00.000Z');
