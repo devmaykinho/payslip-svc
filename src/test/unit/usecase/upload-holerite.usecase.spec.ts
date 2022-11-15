@@ -1,10 +1,10 @@
 import { mock } from 'jest-mock-extended';
-import { HoleriteFactory } from '../../../src/domain/interfaces/factories/holerite/holerite.factory';
-import { FileStoragePort } from '../../../src/domain/interfaces/ports/file-storage.port';
-import { HoleriteRepository } from '../../../src/domain/interfaces/repositories/holerite.repository';
-import { UploadHoleriteUseCase } from '../../../src/domain/usecases/upload-holerite/upload-holerite.usecase';
-import { holeriteFixture } from '../mocks/fixture/holerite.fixture';
-import { uploadHoleriteFixture } from '../mocks/fixture/upload-holerite.fixture';
+import { HoleriteFactory } from '../../../../src/domain/interfaces/factories/holerite/holerite.factory';
+import { FileStoragePort } from '../../../../src/domain/interfaces/ports/file-storage.port';
+import { HoleriteRepository } from '../../../../src/domain/interfaces/repositories/holerite.repository';
+import { UploadHoleriteUseCase } from '../../../../src/domain/usecases/upload-holerite/upload-holerite.usecase';
+import { holeriteFixture } from '../../mocks/fixture/holerite.fixture';
+import { uploadHoleriteFixture } from '../../mocks/fixture/upload-holerite.fixture';
 
 describe('UploadHoleriteUseCase - Unit test', () => {
   const fileStorage = mock<FileStoragePort>();

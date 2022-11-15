@@ -1,4 +1,4 @@
-import { Cpf } from '../../../src/domain/entities/cpf/cpf.entity';
+import { Cpf } from '../../../domain/entities/cpf/cpf.entity';
 
 describe('CPF Entity - Unit test', () => {
   it('Should return an exception if cpf lenth is less then 11', () => {

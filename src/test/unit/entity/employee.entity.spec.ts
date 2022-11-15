@@ -1,5 +1,5 @@
-import { Employee } from '../../../src/domain/entities/employee/employee.entity';
-import { employeeFixture } from '../mocks/fixture/employee.fixture';
+import { Employee } from '../../../domain/entities/employee/employee.entity';
+import { employeeFixture } from '../../mocks/fixture/employee.fixture';
 
 describe('Employee Entity - Unit test', () => {
   it('Should return an exception if dismissal date less than admission date ', () => {
