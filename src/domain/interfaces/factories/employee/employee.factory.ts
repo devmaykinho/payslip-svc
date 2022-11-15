@@ -1,6 +1,6 @@
 import { Employee } from '../../../entities/employee/employee.entity';
-import { EmployeeDto } from './employee.dto';
+import { EmployeeFactoryDto } from './employee.factory.dto';
 
 export interface EmployeeFactory {
-  getInstance: (input: EmployeeDto) => Employee;
+  getInstance: (input: EmployeeFactoryDto) => Employee;
 }

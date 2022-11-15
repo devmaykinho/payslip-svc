@@ -1,13 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { HireEmployeeUseCase } from 'src/domain/usecases/hire-employee/hire-employee.usecase';
 import { EmployeeRepositoryPg } from 'src/infra/database/postgres/repositories/employee.repository';
-import { EmployeeEntityFactory } from '../entities/employee.entity.factory';
+import { CreateEmployeeEntityFactory } from '../entities/employee.entity.factory';
 
 @Injectable()
-export class HireEmployeeFactory {
+export class CreateHireEmployeeUseCaseFactory {
   constructor(
     private readonly employeeRepository: EmployeeRepositoryPg,
-    private readonly employeeFactory: EmployeeEntityFactory,
+    private readonly employeeFactory: CreateEmployeeEntityFactory,
   ) {}
   getInstance(): HireEmployeeUseCase {
     return new HireEmployeeUseCase(

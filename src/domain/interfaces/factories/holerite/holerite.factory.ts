@@ -1,6 +1,6 @@
 import { Holerite } from '../../../entities/holerite/holerite.entity';
-import { HoleriteDto } from './holerite.dto';
+import { HoleriteFactoryDto } from './holerite.factory.dto';
 
 export interface HoleriteFactory {
-  getInstance: (input: HoleriteDto) => Holerite;
+  getInstance: (input: HoleriteFactoryDto) => Holerite;
 }
